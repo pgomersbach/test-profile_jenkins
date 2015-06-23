@@ -10,4 +10,11 @@
 class profile_jenkins
 {
   # a profile class includes one or more classes, please include below
+  class { '::jenkins':
+    cli => true,
+  }
+  jenkins::plugin {'git-plugin':
+    name    => 'git',
+#    version => '2.3.4',
+  }
 }

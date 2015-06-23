@@ -14,8 +14,8 @@ describe 'profile_jenkins' do
           let(:params) {{ }}
 
           it { is_expected.to compile.with_all_deps }
-
-  
+          it { is_expected.to contain_class('profile_jenkins') }
+          it { is_expected.to contain_class('jenkins') }
 
         end
       end

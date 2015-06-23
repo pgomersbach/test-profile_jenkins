@@ -26,19 +26,21 @@ describe 'profile_jenkins class' do
 
   
 # a profile class should test if the included packages and services are installed, enabled and running. Please adept to your needs. See examples below:
-#   describe package('ntp') do
-#      it { is_expected.to be_installed }
-#    end
-#
-#    describe service('ntp') do
-#      it { is_expected.to be_enabled }
-#      it { is_expected.to be_running }
-#    end
-#
-#    describe port(5432) do
-#      it { should be_listening.with('tcp') }
-#    end
-  
+    describe package('jenkins') do
+      it { is_expected.to be_installed }
+    end
+
+    describe service('jenkins') do
+      it { is_expected.to be_enabled }
+      it { is_expected.to be_running }
+    end
+
+    describe port(8080) do
+      it {
+        sleep(10) # Jenkins takes a while to start up
+        should be_listening
+      }
+    end  
 
   end
 end
