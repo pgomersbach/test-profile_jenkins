@@ -1,0 +1,9 @@
+HOSTS:
+  ubuntu-12-04:
+    platform: ubuntu-12.04-x64
+    image: ubuntu:12.04
+    hypervisor: docker
+    docker_preserve_image: true
+CONFIG: 
+  log_level: verbose
+  type: foss
