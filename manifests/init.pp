@@ -9,7 +9,7 @@
 #
 class profile_jenkins
 {
-  # a profile class includes one or more classes, please include below
+  # add a jenkins job for this module
   jenkins::job { "${module_name}-start":
     config => template("${module_name}/start.xml.erb"),
   }
