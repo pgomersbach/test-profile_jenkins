@@ -18,6 +18,7 @@ describe 'profile_jenkins class' do
         EOS
 
         apply_manifest(pp, :catch_failures => true, :future_parser => true)
+        sleep(10) # Jenkins takes a while to start up
       end
     end
 
@@ -34,10 +35,7 @@ describe 'profile_jenkins class' do
     end
 
     describe port(8080) do
-      it {
-        sleep(10) # Jenkins takes a while to start up
-        should be_listening
-      }
+      it { should be_listening }
     end  
 
   end
