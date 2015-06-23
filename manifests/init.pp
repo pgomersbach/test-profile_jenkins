@@ -15,7 +15,7 @@ class profile_jenkins
   }
 
   class { '::jenkins':
-    configure_firewall  => false,
+    configure_firewall => false,
     cli                => true,
     plugin_hash        => {
       'jenkins-cloudformation-plugin' => {},
