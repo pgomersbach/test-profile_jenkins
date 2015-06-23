@@ -13,7 +13,8 @@ class profile_jenkins
 
   package { 'jq': }
   jenkins::job { "${module_name}-start":
-    config => template("${module_name}/start.xml.erb"),
+    config  => template("${module_name}/start.xml.erb"),
+    require => Class['::jenkins'],
   }
 
   class { '::jenkins':

@@ -17,8 +17,9 @@ describe 'profile_jenkins class' do
         class { 'profile_jenkins': }
         EOS
 
-        apply_manifest(pp, :catch_failures => true, :future_parser => true)
+        apply_manifest(pp, :catch_failures => false, :future_parser => true)
         sleep(10) # Jenkins takes a while to start up
+        apply_manifest(pp, :catch_failures => true, :future_parser => true)
       end
     end
 
