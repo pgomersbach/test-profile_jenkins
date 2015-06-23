@@ -13,8 +13,5 @@ class profile_jenkins
   class { '::jenkins':
     cli => true,
   }
-  jenkins::plugin {'git-plugin':
-    name    => 'git',
-#    version => '2.3.4',
-  }
+  jenkins::plugin {'git':}
 }
