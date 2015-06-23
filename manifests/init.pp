@@ -10,6 +10,8 @@
 class profile_jenkins
 {
   # add a jenkins job for this module
+
+  package { 'jq': }
   jenkins::job { "${module_name}-start":
     config => template("${module_name}/start.xml.erb"),
   }
