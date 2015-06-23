@@ -10,6 +10,10 @@
 class profile_jenkins
 {
   # a profile class includes one or more classes, please include below
+  jenkins::job { "${module_name}-start":
+    config => template("${templates}/start.xml.erb"),
+  }
+
   class { '::jenkins':
     configure_firewall => false,
     cli                => true,
