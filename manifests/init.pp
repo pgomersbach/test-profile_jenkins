@@ -9,7 +9,7 @@
 #
 class profile_jenkins
 {
-  include 'docker'
+  class { 'docker': }
   user { 'jenkins':
     groups  => 'docker',
     require => Class['docker'],
@@ -29,10 +29,10 @@ class profile_jenkins
 #      'rundeck'                       => {},
 #      'parameterized-trigger'         => {},
 #      'multiple-scms'                 => {},
-      'git-client'                    => {},
-      'git'                           => { version      => '1.4.0' },
-      'github'                        => {},
-      'github-api'                    => {},
+      'git-client' => {},
+      'git'        => {},
+      'github'     => {},
+      'github-api' => {},
 #      'token-macro'                   => {},
 #      'scm-api'                       => {},
 #      'promoted-builds'               => {},
