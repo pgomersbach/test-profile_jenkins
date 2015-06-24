@@ -14,7 +14,7 @@ class profile_jenkins
 
   user { 'jenkins':
     groups  => 'docker',
-    require => Class['docker', 'jenkins'],
+    require => Class['docker'],
   }
 
   class { 'docker': }
