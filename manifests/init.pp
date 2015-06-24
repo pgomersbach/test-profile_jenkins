@@ -12,6 +12,7 @@ class profile_jenkins
   include 'docker'
   user { 'jenkins':
     groups => 'docker',
+    notify => Service['jenkins'],
   }
   package { 'jq': }
 #  jenkins::job { "${module_name}-start":
