@@ -13,7 +13,7 @@ class profile_jenkins
   user { 'jenkins':
     groups  => 'docker',
     require => Class['docker'],
-    notify  => Service['jenkins'],
+#    notify  => Service['jenkins'],
   }
   package { 'jq': }
 #  jenkins::job { "${module_name}-start":
