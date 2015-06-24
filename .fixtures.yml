@@ -9,6 +9,7 @@ fixtures:
     java: "https://github.com/puppetlabs/puppetlabs-java.git"
     apt: "https://github.com/puppetlabs/puppetlabs-apt"
     staging: "https://github.com/nanliu/puppet-staging"
+    docker: "https://github.com/garethr/garethr-docker.git"
 
   symlinks:
     profile_jenkins: "#{source_dir}"
