@@ -9,8 +9,17 @@
 #
 class profile_jenkins
 {
-
+  include apt
+  include apt::update
+  Exec <| title=='apt_update' |> {
+      refreshonly => false,
+  }
   package { 'jq': }
+  class { 'docker': }
+  user { 'jenkins':
+    groups  => 'docker',
+    require => Class['docker'],
+  }
 
 #  jenkins::job { "${module_name}-start":
 #    config  => template("${module_name}/start.xml.erb"),
@@ -55,12 +64,4 @@ class profile_jenkins
       'envinject'                     => {},
     },
   }
-
-#  user { 'jenkins':
-#    groups  => 'docker',
-#    require => Class['docker'],
-#  }
-
-  class { 'docker': }
-
 }
