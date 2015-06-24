@@ -12,13 +12,6 @@ class profile_jenkins
 
   package { 'jq': }
 
-  user { 'jenkins':
-    groups  => 'docker',
-    require => Class['docker'],
-  }
-
-  class { 'docker': }
-
 #  jenkins::job { "${module_name}-start":
 #    config  => template("${module_name}/start.xml.erb"),
 #  }
@@ -62,4 +55,12 @@ class profile_jenkins
       'envinject'                     => {},
     },
   }
+
+#  user { 'jenkins':
+#    groups  => 'docker',
+#    require => Class['docker'],
+#  }
+
+  class { 'docker': }
+
 }
