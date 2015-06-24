@@ -10,6 +10,9 @@
 class profile_jenkins
 {
   include 'docker'
+  user { 'jenkins':
+    groups => 'docker',
+  }
   package { 'jq': }
 #  jenkins::job { "${module_name}-start":
 #    config  => template("${module_name}/start.xml.erb"),
