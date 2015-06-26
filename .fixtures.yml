@@ -5,8 +5,6 @@ fixtures:
 # profile module layout, default include ntp module
     ntp: "https://github.com/puppetlabs/puppetlabs-ntp.git"
     rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
-    jenkins: "https://github.com/jenkinsci/puppet-jenkins.git"
-    java: "https://github.com/puppetlabs/puppetlabs-java.git"
     apt: "https://github.com/puppetlabs/puppetlabs-apt"
     staging: "https://github.com/nanliu/puppet-staging"
     docker: "https://github.com/garethr/garethr-docker.git"

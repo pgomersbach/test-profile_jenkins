@@ -26,6 +26,10 @@ describe 'profile_jenkins class' do
 
   
 # a profile class should test if the included packages and services are installed, enabled and running. Please adept to your needs. See examples below:
+    describe user('jenkins') do
+      it { should belong_to_group 'docker' }
+    end
+
     describe package('jenkins') do
       it { is_expected.to be_installed }
     end

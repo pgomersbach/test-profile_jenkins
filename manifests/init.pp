@@ -9,59 +9,39 @@
 #
 class profile_jenkins
 {
-  include apt
-  include apt::update
-  Exec <| title=='apt_update' |> {
-      refreshonly => false,
-  }
-  package { 'jq': }
   class { 'docker': }
+
   user { 'jenkins':
     groups  => 'docker',
     require => Class['docker'],
   }
 
-#  jenkins::job { "${module_name}-start":
-#    config  => template("${module_name}/start.xml.erb"),
-#  }
-
-  class { 'jenkins':
-    configure_firewall => false,
-    cli                => true,
-    plugin_hash        => {
-      'jenkins-cloudformation-plugin' => {},
-      'htmlpublisher'                 => {},
-      'rundeck'                       => {},
-      'parameterized-trigger'         => {},
-      'multiple-scms'                 => {},
-      'git-client'                    => {},
-      'git'                           => {},
-      'github'                        => {},
-      'github-api'                    => {},
-      'token-macro'                   => {},
-      'scm-api'                       => {},
-      'promoted-builds'               => {},
-      'matrix-project'                => {},
-      'run-condition'                 => {},
-      'conditional-buildstep'         => {},
-      'rebuild'                       => {},
-      'maven-plugin'                  => {},
-      'subversion'                    => {},
-      'googlecode'                    => {},
-      'ssh-credentials'               => {},
-      'credentials'                   => {},
-      'analysis-core'                 => {},
-      'warnings'                      => {},
-      'rvm'                           => {},
-      'project-health-report'         => {},
-      'greenballs'                    => {},
-      'jquery'                        => {},
-      'build-pipeline-plugin'         => {},
-      'delivery-pipeline-plugin'      => {},
-      'ruby'                          => {},
-      'ruby-runtime'                  => {},
-      'dynamic-axis'                  => {},
-      'envinject'                     => {},
-    },
+  exec { 'install_jenkins_package_keys':
+    command => '/usr/bin/wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | /usr/bin/apt-key add - ',
+    unless  => '/usr/bin/test -f /etc/apt/sources.list.d/jenkins.list',
   }
+
+  file { "/etc/apt/sources.list.d/jenkins.list":
+      mode => '0644',
+     owner => root,
+     group => root,
+    source => "puppet:///modules/${module_name}/jenkins.list",
+    notify => Exec[ '/usr/bin/apt-get update' ],
+  }
+
+  exec { '/usr/bin/apt-get update':
+    refreshonly => true,
+  }
+
+  package { 'jenkins':
+      ensure => latest,
+    require  => [ Exec['install_jenkins_package_keys'],
+                  File['/etc/apt/sources.list.d/jenkins.list'], ],
+  }
+
+  service { 'jenkins':
+    ensure  => running,
+    require => Package[ 'jenkins' ],
+  }
+
 }
