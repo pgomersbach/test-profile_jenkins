@@ -10,6 +10,9 @@
 class profile_jenkins
 {
 
+  jenkins_job_builder::job { 'myjob':
+  }
+
   class { 'jenkins_job_builder':
     version => 'latest'
   }
