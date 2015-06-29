@@ -9,6 +9,7 @@ fixtures:
     staging: "https://github.com/nanliu/puppet-staging"
     jenkins: "https://github.com/jenkinsci/puppet-jenkins.git"
     java: "https://github.com/puppetlabs/puppetlabs-java.git"
+    jenkins_job_builder: "https://github.com/puppet-community/puppet-jenkins_job_builder.git"
 
   symlinks:
     profile_jenkins: "#{source_dir}"

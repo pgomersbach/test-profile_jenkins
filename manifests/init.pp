@@ -10,6 +10,10 @@
 class profile_jenkins
 {
 
+  class { 'jenkins_job_builder':
+    version => 'latest'
+  }
+
   class { '::jenkins':
     configure_firewall => false,
     cli                => true,
