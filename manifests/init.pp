@@ -11,7 +11,7 @@ class profile_jenkins
 {
 
   jenkins_job_builder::job { 'testjob':
-    job_yaml => 'bla',
+    job_yaml => template('profile_jenkins/jenkins-start-job.yaml.erb'),
   }
 
   class { 'jenkins_job_builder':

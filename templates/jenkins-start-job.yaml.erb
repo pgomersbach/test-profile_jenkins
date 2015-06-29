@@ -1,0 +1,38 @@
+- job:
+    name: eDeploy-UnitTests-YAML
+    description: 'Do not edit this job through the web!'
+    project-type: freestyle
+    block-downstream: false
+    scm:
+    - git:
+        skip-tag: false
+        url: git@github.com:enovance/edeploy.git
+    triggers:
+      - pollscm: '@hourly'
+    builders:
+      - shell: |
+          git clean -dxf
+          sloccount --duplicates --wide --details . | fgrep -v .svn > sloccount.sc || :
+          find . -name test\*.py|xargs nosetests --with-xunit --verbose || :
+          find . -name \*.py|egrep -v '^./tests/'|xargs pyflakes  > pyflakes.log || :
+          rm -f pylint.log
+          for f in `find . -name \*.py|egrep -v '^./tests/'`; do
+          pylint --output-format=parseable --reports=y $f >> pylint.log
+          done || :
+          python /usr/local/lib/python2.7/dist-packages/clonedigger/clonedigger.py --cpd-output . || :
+    publishers:
+      - warnings:
+          workspace-file-scanners:
+            - file-pattern: pyflakes.log
+              scanner: PyFlakes
+      - junit:
+          results: nosetests.xml
+      - sloccount:
+          pattern: sloccount.sc
+      - violations:
+          cpd:
+             pattern: output.xml
+          pylint:
+             pattern: pylint.log
+      - email:
+          recipients: devops@mycompany.com
