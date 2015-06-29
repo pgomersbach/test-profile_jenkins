@@ -13,5 +13,5 @@
             result: 'success'
     builders:
       - shell:
-           ## Cleanup old docs.
-           rm -rf doc/
+           rm -rf doc/; mkdir manifests/;
+           puppet doc --mode rdoc --manifestdir manifests/ --modulepath ./modules/ --outputdir doc
