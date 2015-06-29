@@ -19,3 +19,10 @@
              then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
            fi
            grep -l -R ${WORKSPACE} * | while read fname; do perl -pi -e "s@${WORKSPACE}/@/@g" $fname; done
+    publishers:
+      - html-publisher:
+          name: "HTML Report"
+          dir: "doc"
+          files: "index.html"
+          keep-all: false
+          allow-missing: false
