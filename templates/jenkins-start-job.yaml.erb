@@ -14,3 +14,7 @@
           cd $WORKSPACE;
           bundle install --path vendor/bundle;
           bundle exec rake syntax;
+    properties:
+      - delivery-pipeline:
+          stage: Stage
+          task: Task
