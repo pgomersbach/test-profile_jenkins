@@ -23,10 +23,11 @@ class profile_jenkins
     configure_firewall => false,
     cli                => true,
     plugin_hash        => {
-      'git-client' => {},
-      'git'        => { version      => '1.4.0' },
-      'github'     => {},
-      'github-api' => {},
+      'git-client'    => {},
+      'git'           => { version      => '1.4.0' },
+      'github'        => {},
+      'github-api'    => {},
+      'htmlpublisher' => {},
     },
   }
 }
