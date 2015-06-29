@@ -1,0 +1,18 @@
+- job:
+    name: profile_jenkins-spec
+    description: 'Auto generated job, do not edit this job through the web!'
+    project-type: freestyle
+    block-downstream: false
+    scm:
+    - git:
+        skip-tag: false
+        url: https://github.com/pgomersbach/test-profile_jenkins.git
+    triggers:
+      - build-result:
+        - jobs:
+          - profile_jenkins-start
+    builders:
+      - shell:
+          cd $WORKSPACE;
+          bundle install --path vendor/bundle;
+          bundle exec rake spec;

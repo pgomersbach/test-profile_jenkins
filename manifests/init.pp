@@ -10,8 +10,12 @@
 class profile_jenkins
 {
 
-  jenkins_job_builder::job { 'testjob':
+  jenkins_job_builder::job { 'start-job':
     job_yaml => template('profile_jenkins/jenkins-start-job.yaml.erb'),
+  }
+
+  jenkins_job_builder::job { 'spec-job':
+    job_yaml => template('profile_jenkins/jenkins-spec-job.yaml.erb'),
   }
 
   class { 'jenkins_job_builder':
