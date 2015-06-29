@@ -9,7 +9,8 @@
         url: https://github.com/pgomersbach/test-profile_jenkins.git
     triggers:
       - reverse:
-        - jobs: 'profile_jenkins-start'
+            jobs: 'Fantastic-job'
+            result: 'failure'
     builders:
       - shell:
           cd $WORKSPACE;
