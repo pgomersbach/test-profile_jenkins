@@ -9,10 +9,13 @@
 #
 class profile_jenkins
 {
-  include profile_jenkins::jobs
 
   class { 'jenkins_job_builder':
-    install_from_git => true,
+    install_from_git => false,
+  }
+
+  class { 'profile_jenkins::jobs':
+    require => Class[ 'jenkins_job_builder' ],
   }
 
   class { '::jenkins':
