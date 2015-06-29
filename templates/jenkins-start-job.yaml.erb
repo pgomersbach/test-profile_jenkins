@@ -11,9 +11,9 @@
       - pollscm: '@hourly'
     builders:
       - shell:
-          cd $WORKSPACE
-          bundle install --path vendor/bundle
-          bundle exec rake syntax
+          cd $WORKSPACE;
+          bundle install --path vendor/bundle;
+          bundle exec rake syntax;
     publishers:
       - warnings:
           workspace-file-scanners:
