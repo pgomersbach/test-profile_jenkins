@@ -7,7 +7,8 @@ fixtures:
     rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
     apt: "https://github.com/puppetlabs/puppetlabs-apt"
     staging: "https://github.com/nanliu/puppet-staging"
-    docker: "https://github.com/garethr/garethr-docker.git"
+    jenkins: "https://github.com/jenkinsci/puppet-jenkins.git"
+    java: "https://github.com/puppetlabs/puppetlabs-java.git"
 
   symlinks:
     profile_jenkins: "#{source_dir}"
