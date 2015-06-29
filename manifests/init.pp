@@ -10,12 +10,30 @@
 class profile_jenkins
 {
 
-  jenkins_job_builder::job { 'myjob':
-  }
+ $job = {
+   'config' => {
+     'name'         => 'test-job',
+     'description'  => 'This is a test job',
+     'project-type' => 'freestyle',
+     'scm'          => [
+       'git' => {
+         'url'      => 'git@github.com:opentable/puppet-jenkins_job_builder',
+         'branches' => ['*/master']
+       }
+     ],
+     'builders' => [
+       'shell' => 'echo hello'
+     ],
+     'triggers' => [
+       'pollscm' => '*/1 * * * *'
+     ]
+   }
+ }
 
-  class { 'jenkins_job_builder':
-    version => 'latest'
+  jenkins_job_builder::job { 'testjob':
+    config => $job,
   }
+  class { 'jenkins_job_builder': }
 
   class { '::jenkins':
     configure_firewall => false,

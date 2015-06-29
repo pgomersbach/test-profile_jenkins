@@ -18,7 +18,6 @@ describe 'profile_jenkins' do
           it { is_expected.to contain_package('jenkins') }
           it { is_expected.to contain_service('jenkins') }
           it { is_expected.to contain_user('jenkins') }
-          it { is_expected.to contain_class('docker') }
         end
       end
     end
