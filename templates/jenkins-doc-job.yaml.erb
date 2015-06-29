@@ -1,0 +1,26 @@
+- job:
+    name: profile_jenkins-doc
+    description: 'Auto generated job, do not edit this job through the web!'
+    project-type: freestyle
+    block-downstream: false
+    scm:
+    - git:
+        skip-tag: false
+        url: <%= jobgiturl %>
+    triggers:
+      - reverse:
+            jobs: 'profile_jenkins-start'
+            result: 'success'
+    builders:
+      - shell:
+           ## Cleanup old docs.
+           [ -d doc/ ] && rm -rf doc/
+           ## Dummy manifests folder.
+           ! [ -d manifests/ ] && mkdir manifests/
+           ## Generate docs
+           puppet doc --mode rdoc --manifestdir manifests/ --modulepath ./modules/ --outputdir doc
+           ## Fix docs to remove the complete workspace from all file paths.
+           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; then
+           mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
+           fi
+           grep -l -R ${WORKSPACE} * | while read fname; do perl -pi -e "s@${WORKSPACE}/@/@g" $fname; done

@@ -21,4 +21,9 @@ class profile_jenkins::jobs (
     delay    => 20,
   }
 
+  jenkins_job_builder::job { 'doc-job':
+    job_yaml => template('profile_jenkins/jenkins-doc-job.yaml.erb'),
+    delay    => 20,
+  }
+
 }
