@@ -12,6 +12,7 @@ class profile_jenkins
 
   class { 'jenkins_job_builder':
     install_from_git => false,
+    require          => Class[ 'jenkins' ],
   }
 
   class { 'profile_jenkins::jobs':
