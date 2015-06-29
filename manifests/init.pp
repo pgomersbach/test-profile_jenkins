@@ -18,7 +18,7 @@ class profile_jenkins
     job_yaml => template('profile_jenkins/jenkins-spec-job.yaml.erb'),
   }
 
-  jenkins_job_builder::job { 'lintc-job':
+  jenkins_job_builder::job { 'lint-job':
     job_yaml => template('profile_jenkins/jenkins-lint-job.yaml.erb'),
   }
 
