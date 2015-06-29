@@ -23,12 +23,15 @@ class profile_jenkins
     configure_firewall => false,
     cli                => true,
     plugin_hash        => {
-      'git-client'            => {},
-      'git'                   => { version      => '1.4.0' },
-      'github'                => {},
-      'github-api'            => {},
-      'htmlpublisher'         => {},
-      'build-pipeline-plugin' => {};
+      'git-client'               => {},
+      'git'                      => { version      => '1.4.0' },
+      'github'                   => {},
+      'github-api'               => {},
+      'htmlpublisher'            => {},
+      'jquery'                   => {},
+      'parameterized-trigger'    => {},
+      'token-macro'              => {},
+      'delivery-pipeline-plugin' => {},
     },
   }
 }
