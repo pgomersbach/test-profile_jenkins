@@ -1,25 +1,19 @@
 - job:
-    name: eDeploy-UnitTests-YAML
-    description: 'Do not edit this job through the web!'
+    name: profile_jenkins-start
+    description: 'Auto generated job, do not edit this job through the web!'
     project-type: freestyle
     block-downstream: false
     scm:
     - git:
         skip-tag: false
-        url: git@github.com:enovance/edeploy.git
+        url: https://github.com/pgomersbach/test-profile_jenkins.git
     triggers:
       - pollscm: '@hourly'
     builders:
-      - shell: |
-          git clean -dxf
-          sloccount --duplicates --wide --details . | fgrep -v .svn > sloccount.sc || :
-          find . -name test\*.py|xargs nosetests --with-xunit --verbose || :
-          find . -name \*.py|egrep -v '^./tests/'|xargs pyflakes  > pyflakes.log || :
-          rm -f pylint.log
-          for f in `find . -name \*.py|egrep -v '^./tests/'`; do
-          pylint --output-format=parseable --reports=y $f >> pylint.log
-          done || :
-          python /usr/local/lib/python2.7/dist-packages/clonedigger/clonedigger.py --cpd-output . || :
+      - shell:
+          cd $WORKSPACE
+          bundle install --path vendor/bundle
+          bundle exec rake syntax
     publishers:
       - warnings:
           workspace-file-scanners:
