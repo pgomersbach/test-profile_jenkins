@@ -35,7 +35,6 @@ class profile_jenkins
       'git'                           => { version      => '1.4.0' },
       'github'                        => {},
       'github-api'                    => {},
-      'buildresult-trigger'           => {},
 #      'token-macro'                   => {},
 #      'scm-api'                       => {},
 #      'promoted-builds'               => {},

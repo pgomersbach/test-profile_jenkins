@@ -8,10 +8,8 @@
         skip-tag: false
         url: https://github.com/pgomersbach/test-profile_jenkins.git
     triggers:
-      - build-result:
-          groups:
-            - jobs:
-                - profile_jenkins-start
+      - reverse:
+        - jobs: 'profile_jenkins-start'
     builders:
       - shell:
           cd $WORKSPACE;
