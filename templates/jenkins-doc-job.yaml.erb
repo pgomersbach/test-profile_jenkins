@@ -18,3 +18,4 @@
            if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
              then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
            fi
+           grep -l -R ${WORKSPACE} * | while read fname; do perl -pi -e "s@${WORKSPACE}/@/@g" $fname; done
