@@ -12,7 +12,9 @@
             jobs: 'profile_jenkins-start'
             result: 'success'
     builders:
-      - shell:
+      - shell: |
            rm -rf doc/;
            puppet doc --mode rdoc --manifestdir manifests/ --modulepath ./modules/ --outputdir doc;
-           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules" fi
+           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
+             then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
+           fi
