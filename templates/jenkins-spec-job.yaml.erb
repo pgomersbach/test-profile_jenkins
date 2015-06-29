@@ -9,9 +9,19 @@
         url: https://github.com/pgomersbach/test-profile_jenkins.git
     triggers:
       - build-result:
-        groups:
-          - jobs:
-            - profile_jenkins-start
+          combine: true
+          cron: '* * * * *'
+          groups:
+            - jobs:
+                - foo
+                - example
+              results:
+                - unstable
+            - jobs:
+                - foo2
+              results:
+                - not-built
+                - aborted
     builders:
       - shell:
           cd $WORKSPACE;
