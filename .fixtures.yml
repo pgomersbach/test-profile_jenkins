@@ -7,6 +7,7 @@ fixtures:
     rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
     apt: "https://github.com/puppetlabs/puppetlabs-apt"
     inifile: "https://github.com/puppetlabs/puppetlabs-inifile"
+    vcsrepo: "https://github.com/puppetlabs/puppetlabs-vcsrepo"
     staging: "https://github.com/nanliu/puppet-staging"
     jenkins: "https://github.com/jenkinsci/puppet-jenkins.git"
     java: "https://github.com/puppetlabs/puppetlabs-java.git"

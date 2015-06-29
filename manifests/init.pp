@@ -33,7 +33,9 @@ class profile_jenkins
   jenkins_job_builder::job { 'testjob':
     config => $job,
   }
-  class { 'jenkins_job_builder': }
+  class { 'jenkins_job_builder':
+    install_from_git => true,
+  }
 
   class { '::jenkins':
     configure_firewall => false,
