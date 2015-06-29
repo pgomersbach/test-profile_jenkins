@@ -14,19 +14,3 @@
           cd $WORKSPACE;
           bundle install --path vendor/bundle;
           bundle exec rake syntax;
-    publishers:
-      - warnings:
-          workspace-file-scanners:
-            - file-pattern: pyflakes.log
-              scanner: PyFlakes
-      - junit:
-          results: nosetests.xml
-      - sloccount:
-          pattern: sloccount.sc
-      - violations:
-          cpd:
-             pattern: output.xml
-          pylint:
-             pattern: pylint.log
-      - email:
-          recipients: devops@mycompany.com
