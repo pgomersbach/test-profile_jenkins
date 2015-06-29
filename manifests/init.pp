@@ -10,29 +10,10 @@
 class profile_jenkins
 {
 
- $job = {
-   'config' => {
-     'name'         => 'test-job',
-     'description'  => 'This is a test job',
-     'project-type' => 'freestyle',
-     'scm'          => [
-       'git' => {
-         'url'      => 'git@github.com:opentable/puppet-jenkins_job_builder',
-         'branches' => ['*/master']
-       }
-     ],
-     'builders' => [
-       'shell' => 'echo hello'
-     ],
-     'triggers' => [
-       'pollscm' => '*/1 * * * *'
-     ]
-   }
- }
-
   jenkins_job_builder::job { 'testjob':
-    config => $job,
+    job_yaml => 'bla',
   }
+
   class { 'jenkins_job_builder':
     install_from_git => true,
   }
