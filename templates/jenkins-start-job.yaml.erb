@@ -5,7 +5,7 @@
     block-downstream: false
     scm:
     - git:
-        skip-tag: false
+        skip-tag: true
         url: <%= jobgiturl %>
     triggers:
       - pollscm: '@hourly'
