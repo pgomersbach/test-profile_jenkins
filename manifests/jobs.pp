@@ -2,28 +2,19 @@
 #
 # This class is called from profile_jenkins to install jobs.
 #
-class profile_jenkins::jobs (
-  $jobgiturl='https://github.com/pgomersbach/test-profile_jenkins.git'
-){
+class profile_jenkins::jobs {
 
-  jenkins_job_builder::job { 'start-job':
-    job_yaml => template('profile_jenkins/jenkins-start-job.yaml.erb'),
-    delay    => 20,
+  include profile_jenkins::jobs
+
+  $myjobs = {
+    'profile_jenkins' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_jenkins.git' },
+    'profile_puppetmaster' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_puppetmaster.git' },
+    'profile_base' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_base.git' },
+    'role_deployserver' => { jobgiturl    => 'https://github.com/pgomersbach/test-role_deployserver.git' },
+    'role_ciserver' => { jobgiturl    => 'https://github.com/pgomersbach/test-role_ciserver.git' },
+    'rspec_monitor' => { jobgiturl    => 'https://github.com/pgomersbach/test-rspec_monitor.git' },
   }
 
-  jenkins_job_builder::job { 'spec-job':
-    job_yaml => template('profile_jenkins/jenkins-spec-job.yaml.erb'),
-    delay    => 20,
-  }
-
-  jenkins_job_builder::job { 'lint-job':
-    job_yaml => template('profile_jenkins/jenkins-lint-job.yaml.erb'),
-    delay    => 20,
-  }
-
-  jenkins_job_builder::job { 'doc-job':
-    job_yaml => template('profile_jenkins/jenkins-doc-job.yaml.erb'),
-    delay    => 20,
-  }
+  create_resources(profile_jenkins::job, $myjobs)
 
 }

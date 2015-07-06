@@ -1,5 +1,5 @@
 - job:
-    name: profile_jenkins-lint
+    name: <%= @name %>-lint
     description: 'Auto generated job, do not edit this job through the web!'
     project-type: freestyle
     block-downstream: false
@@ -9,7 +9,7 @@
         url: <%= jobgiturl %>
     triggers:
       - reverse:
-            jobs: 'profile_jenkins-start'
+            jobs: <%= @name %>-start
             result: 'success'
     builders:
       - shell:

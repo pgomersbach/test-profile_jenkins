@@ -1,12 +1,12 @@
 - job:
-    name: profile_jenkins-start
+    name: <%= @name %>-start
     description: 'Auto generated job, do not edit this job through the web!'
     project-type: freestyle
     block-downstream: false
     scm:
     - git:
         skip-tag: true
-        url: <%= jobgiturl %>
+        url: <%= @jobgiturl %>
     triggers:
       - pollscm: '@hourly'
     builders:

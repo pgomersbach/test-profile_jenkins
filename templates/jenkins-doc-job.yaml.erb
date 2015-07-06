@@ -1,15 +1,15 @@
 - job:
-    name: profile_jenkins-doc
+    name: <%= @name %>-doc
     description: 'Auto generated job, do not edit this job through the web!'
     project-type: freestyle
     block-downstream: false
     scm:
     - git:
         skip-tag: true
-        url: <%= jobgiturl %>
+        url: <%= @jobgiturl %>
     triggers:
       - reverse:
-            jobs: 'profile_jenkins-start'
+            jobs: <%= @name %>-start
             result: 'success'
     builders:
       - shell: |
