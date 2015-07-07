@@ -14,8 +14,9 @@
     builders:
       - shell:
           cd $WORKSPACE;
-          bundle install --path vendor/bundle;
-          bundle exec rake spec;
+          BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+          bundle install --path $BUNDLE_PATH;
+          bundle exec rake spec
     logrotate:
       daysToKeep: 3
       numToKeep: 2

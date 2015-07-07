@@ -14,7 +14,8 @@
     builders:
       - shell:
           cd $WORKSPACE;
-          bundle install --path vendor/bundle;
+          BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+          bundle install --path $BUNDLE_PATH;
           bundle exec rake lint;
     publishers:
       - warnings:

@@ -12,8 +12,9 @@
     builders:
       - shell:
           cd $WORKSPACE;
-          bundle install --path vendor/bundle;
-          bundle exec rake syntax;
+          BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+          bundle install --path $BUNDLE_PATH;
+          bundle exec rake syntax
     properties:
       - delivery-pipeline:
           stage: Stage
