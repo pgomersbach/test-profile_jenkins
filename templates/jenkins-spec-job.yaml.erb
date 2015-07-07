@@ -16,3 +16,6 @@
           cd $WORKSPACE;
           bundle install --path vendor/bundle;
           bundle exec rake spec;
+    logrotate:
+      daysToKeep: 3
+      numToKeep: 2
