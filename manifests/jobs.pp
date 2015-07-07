@@ -4,7 +4,6 @@
 #
 class profile_jenkins::jobs {
 
-  include profile_jenkins::jobs
 
   $myjobs = {
     'profile_jenkins' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_jenkins.git' },
