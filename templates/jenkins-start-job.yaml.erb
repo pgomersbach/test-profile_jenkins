@@ -8,7 +8,7 @@
         skip-tag: true
         url: <%= @jobgiturl %>
     triggers:
-      - pollscm: '@hourly'
+      - pollscm: 'H/15 * * * *'
     builders:
       - shell:
           cd $WORKSPACE;
