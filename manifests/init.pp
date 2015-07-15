@@ -9,7 +9,7 @@
 #
 class profile_jenkins
 {
-  package { [ 'bundler' ,'libxslt-dev', 'libxml2-dev', 'zlib1g-dev']:
+  package { [ 'bundler' ,'libxslt1-dev', 'libxml2-dev', 'zlib1g-dev']:
     ensure => installed,
   }
 
