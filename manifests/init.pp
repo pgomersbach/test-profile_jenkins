@@ -9,6 +9,9 @@
 #
 class profile_jenkins
 {
+  package { 'bundler':
+    ensure => installed,
+  }
 
   class { 'jenkins_job_builder':
     install_from_git => false,
