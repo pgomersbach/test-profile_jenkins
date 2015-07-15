@@ -6,7 +6,7 @@
     scm:
     - git:
         skip-tag: true
-        url: <%= jobgiturl %>
+        url: <%= @jobgiturl %>
     triggers:
       - reverse:
             jobs: <%= @name %>-start
