@@ -10,6 +10,7 @@ class profile_jenkins::jobs {
     'profile_puppetmaster' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_puppetmaster.git' },
     'profile_base' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_base.git' },
     'profile_mcollective' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_mcollective.git' },
+    'profile_rundeck' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_rundeck.git' },
     'role_deployserver' => { jobgiturl    => 'https://github.com/pgomersbach/test-role_deployserver.git' },
     'role_ciserver' => { jobgiturl    => 'https://github.com/pgomersbach/test-role_ciserver.git' },
     'rspec_monitor' => { jobgiturl    => 'https://github.com/pgomersbach/test-rspec_monitor.git' },
