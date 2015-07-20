@@ -14,6 +14,7 @@ class profile_jenkins
   }
 
   class { 'jenkins_job_builder':
+    ensure           => latest,
     install_from_git => false,
     require          => Class[ 'jenkins' ],
   }
