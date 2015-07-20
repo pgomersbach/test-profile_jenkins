@@ -36,7 +36,7 @@ describe 'profile_jenkins class' do
       it { is_expected.to be_running }
     end
 
-    describe port(8080) do
+    describe port(9090) do
       it { should be_listening }
     end  
 

@@ -25,6 +25,7 @@ class profile_jenkins
   class { '::jenkins':
     configure_firewall => false,
     cli                => true,
+    port               => 9090,
     plugin_hash        => {
       'git-client'               => {},
       'git'                      => { version      => '1.4.0' },
