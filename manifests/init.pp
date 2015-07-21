@@ -15,6 +15,7 @@ class profile_jenkins
 
   class { 'jenkins_job_builder':
     version          => 'latest',
+    jenkins_url      => 'http://localhost:9090',
     install_from_git => true,
     require          => Class[ 'jenkins' ],
   }
