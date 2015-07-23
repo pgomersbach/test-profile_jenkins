@@ -14,6 +14,9 @@
     builders:
       - shell: |
            rm -rf doc/;
+           cd $WORKSPACE;
+           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+           bundle install --path $BUNDLE_PATH;
            puppet doc --mode rdoc --manifestdir manifests/ --modulepath ./modules/ --outputdir doc;
            if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
              then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
