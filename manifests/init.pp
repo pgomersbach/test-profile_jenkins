@@ -31,8 +31,8 @@ class profile_jenkins
   class { '::jenkins':
     configure_firewall => false,
     cli                => true,
-    config_hash => {
-     'HTTP_PORT' => { 'value' => '9090' }
+    config_hash        => {
+      'HTTP_PORT' => { 'value' => '9090' }
     },
 
     plugin_hash        => {
