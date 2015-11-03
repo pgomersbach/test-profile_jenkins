@@ -15,7 +15,10 @@
       - shell: |
            rm -rf doc/;
            cd $WORKSPACE;
+           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+           bundle install --path $BUNDLE_PATH;
            /opt/puppetlabs/bin/puppet strings;
+           /opt/puppetlabs/bin/puppet help;
 #           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
 #             then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
 #           fi
