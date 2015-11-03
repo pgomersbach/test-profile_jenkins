@@ -40,6 +40,7 @@ class profile_jenkins
       'git'                      => { version      => '1.4.0' },
       'github'                   => {},
       'github-api'               => {},
+      'plain-credentials'        => {},
       'matrix-project'           => {},
       'workflow-aggregator'      => {},
       'htmlpublisher'            => {},
