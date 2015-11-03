@@ -15,7 +15,9 @@ class profile_jenkins::jobs {
     'role_ciserver' => { jobgiturl    => 'https://github.com/pgomersbach/test-role_ciserver.git' },
     'rspec_monitor' => { jobgiturl    => 'https://github.com/pgomersbach/test-rspec_monitor.git' },
     'role_aio' => { jobgiturl => 'https://github.com/pgomersbach/test-role_aio.git' },
-    'naturalis_suricata' => { jobgiturl => 'https://github.com/naturalis/naturalis-suricata.git' },
+    'naturalis_suricata' => { jobgiturl => 'https://github.com/naturalis/suricata.git' },
+    'naturalis_scirius' => { jobgiturl => 'https://github.com/naturalis/scirius.git' },
+    'naturalis_role_ids' => { jobgiturl => 'https://github.com/naturalis/role_ids.git' },
   }
 
   create_resources(profile_jenkins::job, $myjobs)
