@@ -15,7 +15,7 @@
       - shell: |
            rm -rf doc/;
            cd $WORKSPACE;
-           puppet strings;
+           /opt/puppetlabs/bin/puppet strings;
 #           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
 #             then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
 #           fi
