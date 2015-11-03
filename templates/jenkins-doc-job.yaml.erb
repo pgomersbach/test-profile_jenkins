@@ -13,11 +13,9 @@
             result: 'success'
     builders:
       - shell: |
-           rm -rf doc/;
            cd $WORKSPACE;
-           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
-           bundle install --path $BUNDLE_PATH;
-           /opt/puppetlabs/bin/puppet help;
+           puppet resource package yard provider=puppet_gem;
+           puppet module install puppetlabs-strings;
            /opt/puppetlabs/bin/puppet strings;
 #           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
 #             then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
