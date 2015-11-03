@@ -43,6 +43,7 @@ class profile_jenkins
       'plain-credentials'        => {},
       'matrix-project'           => {},
       'workflow-aggregator'      => {},
+      'workflow-durable-task-step' => {},
       'htmlpublisher'            => {},
       'jquery'                   => {},
       'parameterized-trigger'    => {},
