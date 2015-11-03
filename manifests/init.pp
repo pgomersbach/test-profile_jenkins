@@ -9,10 +9,10 @@
 #
 class profile_jenkins
 {
-  package { [ 'bundler' ,'libxslt1-dev', 'libxml2-dev', 'zlib1g-dev', 'git']:
+  package { [ 'bundler' ,'libxslt1-dev', 'libxml2-dev', 'zlib1g-dev', 'git' ]:
     ensure => installed,
   }
-  package { 'json':
+  package { [ 'json', 'yard' ]:
     ensure   => installed,
     provider => gem,
   }
