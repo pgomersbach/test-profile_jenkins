@@ -14,7 +14,9 @@
     builders:
       - shell: |
            cd $WORKSPACE;
-           puppet resource package yard provider=puppet_gem;
+           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
+           bundle install --path $BUNDLE_PATH;
+
            puppet module install puppetlabs-strings;
            /opt/puppetlabs/bin/puppet strings;
 #           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
