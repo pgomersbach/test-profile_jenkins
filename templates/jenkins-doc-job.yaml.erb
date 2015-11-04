@@ -13,16 +13,12 @@
             result: 'success'
     builders:
       - shell: |
+           export GEM_HOME=/var/lib/jenkins/.gem/ruby/2.1.0/cache/;
+           mkdir -p $GEM_HOME;
            cd $WORKSPACE;
-           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
-           bundle install --path $BUNDLE_PATH;
-
-           puppet module install puppetlabs-strings;
+           /opt/puppetlabs/bin/puppet resource package yard provider=puppet_gem;
+           /opt/puppetlabs/bin/puppet module install puppetlabs-strings;
            /opt/puppetlabs/bin/puppet strings;
-#           if [ -d ${WORKSPACE}/doc/files/${WORKSPACE}/modules ]; 
-#             then mv -v "${WORKSPACE}/doc/files/${WORKSPACE}/modules" "${WORKSPACE}/doc/files/modules"
-#           fi
-#           grep -l -R ${WORKSPACE} * | while read fname; do perl -pi -e "s@${WORKSPACE}/@/@g" $fname; done
     publishers:
       - html-publisher:
           name: "HTML Report"
