@@ -6,8 +6,12 @@ class profile_jenkins::jobs {
 
 
   $myjobs = {
+    'dirict_profile_apache' => { jobgiturl => 'https://github.com/relybv/dirict-profile_apache.git' },
+    'dirict_profile_base' => { jobgiturl => 'https://github.com/relybv/dirict-profile_base.git' },
+    'dirict_profile_mysql' => { jobgiturl => 'https://github.com/relybv/dirict-profile_mysql.git' },
+    'dirict_profile_nfs' => { jobgiturl => 'https://github.com/relybv/dirict-profile_nfs.git' },
     'dirict_role_appl' => { jobgiturl => 'https://github.com/relybv/dirict-role_appl.git' },
-    'dirict_role_appl' => { jobgiturl => 'https://github.com/relybv/dirict-role_db.git' },
+    'dirict_role_db' => { jobgiturl => 'https://github.com/relybv/dirict-role_db.git' },
     'dirict_role_monitor' => { jobgiturl => 'https://github.com/relybv/dirict-role_monitor.git' },
     'profile_jenkins' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_jenkins.git' },
     'profile_puppetmaster' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_puppetmaster.git' },
