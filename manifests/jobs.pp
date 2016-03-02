@@ -6,6 +6,9 @@ class profile_jenkins::jobs {
 
 
   $myjobs = {
+    'dirict_role_appl' => { jobgiturl => 'https://github.com/relybv/dirict-role_appl.git' },
+    'dirict_role_appl' => { jobgiturl => 'https://github.com/relybv/dirict-role_db.git' },
+    'dirict_role_monitor' => { jobgiturl => 'https://github.com/relybv/dirict-role_monitor.git' },
     'profile_jenkins' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_jenkins.git' },
     'profile_puppetmaster' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_puppetmaster.git' },
     'profile_base' => { jobgiturl    => 'https://github.com/pgomersbach/test-profile_base.git' },
