@@ -29,6 +29,7 @@ class profile_jenkins
   }
 
   class { '::jenkins':
+    executors          => 4,
     configure_firewall => false,
     cli                => true,
     config_hash        => {
