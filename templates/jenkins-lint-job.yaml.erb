@@ -15,7 +15,7 @@
       - shell:
           cd $WORKSPACE;
           BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
-          bundle install --path $BUNDLE_PATH;
+          bundle install --path $BUNDLE_PATH --without development system_tests;
           bundle exec rake lint;
     publishers:
       - warnings:

@@ -69,7 +69,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd $WORKSPACE
-bundle install --path vendor/bundle
+bundle install --path vendor/bundle --without development system_tests
 bundle exec rake syntax</command>
     </hudson.tasks.Shell>
   </builders>
