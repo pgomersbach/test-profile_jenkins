@@ -9,7 +9,7 @@ fixtures:
     inifile: "https://github.com/puppetlabs/puppetlabs-inifile"
     vcsrepo: "https://github.com/puppetlabs/puppetlabs-vcsrepo"
     staging: "https://github.com/nanliu/puppet-staging"
-    archive: "https://github.com/camptocamp/puppet-archive.git"
+    archive: "https://github.com/voxpupuli/puppet-archive.git"
     jenkins: "https://github.com/jenkinsci/puppet-jenkins.git"
     java: "https://github.com/puppetlabs/puppetlabs-java.git"
     jenkins_job_builder: "https://github.com/puppet-community/puppet-jenkins_job_builder.git"
