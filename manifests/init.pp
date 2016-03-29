@@ -33,12 +33,15 @@ class profile_jenkins
     configure_firewall => false,
     cli                => true,
     config_hash        => {
-      'HTTP_PORT' => { 'value' => '9090' }
+      'HTTP_PORT' => {
+        'value' => '9090',
+      },
     },
-
     plugin_hash        => {
       'git-client'               => {},
-      'git'                      => { version      => '1.4.0' },
+      'git'                      => {
+        version => '1.4.0',
+      },
       'github'                   => {},
       'github-api'               => {},
       'plain-credentials'        => {},
