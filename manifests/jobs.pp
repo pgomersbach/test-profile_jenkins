@@ -13,6 +13,7 @@ class profile_jenkins::jobs {
     'dirict_profile_nfs' => { jobgiturl => 'https://github.com/relybv/dirict-profile_nfs.git' },
     'dirict_profile_rsyslog' => { jobgiturl => 'https://github.com/relybv/dirict-profile_rsyslog.git' },
     'dirict_role_appl' => { jobgiturl => 'https://github.com/relybv/dirict-role_appl.git' },
+    'dirict_role_aio' => { jobgiturl => 'https://github.com/relybv/dirict-role_aio.git' },
     'dirict_role_db' => { jobgiturl => 'https://github.com/relybv/dirict-role_db.git' },
     'dirict_role_lb' => { jobgiturl => 'https://github.com/relybv/dirict-role_lb.git' },
     'dirict_role_monitor' => { jobgiturl => 'https://github.com/relybv/dirict-role_monitor.git' },
