@@ -6,6 +6,7 @@ class profile_jenkins::jobs {
 
 
   $myjobs = {
+    'rely_profile_development' => { jobgiturl => 'https://github.com/relybv/rely-profile_development.git' },
     'dirict_profile_apache' => { jobgiturl => 'https://github.com/relybv/dirict-profile_apache.git' },
     'dirict_profile_base' => { jobgiturl => 'https://github.com/relybv/dirict-profile_base.git' },
     'dirict_profile_haproxy' => { jobgiturl => 'https://github.com/relybv/dirict-profile_haproxy.git' },
