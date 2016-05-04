@@ -29,7 +29,8 @@ class profile_jenkins
   }
 
   class { '::jenkins':
-    executors          => 4,
+    repo               => false,
+    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.1_all.deb',
     configure_firewall => false,
     cli                => true,
     config_hash        => {
