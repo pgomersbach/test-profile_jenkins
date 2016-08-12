@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 group :test do
   gem "rake"
-  gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
-  gem "rspec", '< 3.2.0'
+  gem "puppet", ENV['PUPPET_GEM_VERSION'] || ' > 3.8.0'
+  gem "rspec"
   gem "rspec-puppet"
   gem "puppetlabs_spec_helper"
   gem "metadata-json-lint"
@@ -11,7 +11,7 @@ group :test do
   gem 'rubocop', '0.33.0'
   gem 'simplecov', '>= 0.11.0'
   gem 'simplecov-console'
-
+  gem 'ruby_dep', '1.3.1'
   gem "puppet-lint-leading_zero-check"
   gem "puppet-lint-trailing_comma-check"
   gem "puppet-lint-version_comparison-check"

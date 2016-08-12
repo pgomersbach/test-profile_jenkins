@@ -6,7 +6,6 @@ define profile_jenkins::job($jobgiturl) {
 
   jenkins_job_builder::job { "${name}-start-job":
     job_yaml => template('profile_jenkins/jenkins-start-job.yaml.erb'),
-    delay    => 10,
   }
 
   jenkins_job_builder::job { "${name}-spec-job":
