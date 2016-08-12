@@ -47,9 +47,7 @@ class profile_jenkins
     },
     plugin_hash        => {
       'git-client'               => {},
-      'git'                      => {
-        version => '1.4.0',
-      },
+      'git'                      => {},
       'github'                   => {},
       'github-api'               => {},
       'plain-credentials'        => {},
