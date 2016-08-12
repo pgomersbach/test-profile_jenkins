@@ -59,6 +59,8 @@ class profile_jenkins
       'parameterized-trigger'    => {},
       'token-macro'              => {},
       'delivery-pipeline-plugin' => {},
+      'scm-api'                  => {},
+      'conditional-buildstep'    => {},
     },
   }
 }
