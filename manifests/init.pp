@@ -12,6 +12,11 @@ class profile_jenkins
   package { [ 'bundler' ,'libxslt1-dev', 'libxml2-dev', 'zlib1g-dev', 'git', 'daemon' ]:
     ensure => installed,
   }
+
+  exec { 'update_six':
+    command => '/usr/bin/pip install --upgrade six>=1.90',
+  }
+
 #  package { [ 'json', 'yard' ]:
 #    ensure   => installed,
 #    provider => gem,
@@ -25,12 +30,13 @@ class profile_jenkins
   }
 
   class { 'profile_jenkins::jobs':
-    require => Class[ 'jenkins_job_builder' ],
+    require => [ Class[ 'jenkins_job_builder' ], Exec[ 'update_six' ], ],
   }
 
   class { '::jenkins':
     repo               => false,
-    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.1_all.deb',
+#    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.1_all.deb',
+    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.3_all.deb',
     configure_firewall => false,
     cli                => true,
     config_hash        => {
