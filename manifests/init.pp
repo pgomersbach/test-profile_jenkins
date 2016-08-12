@@ -61,6 +61,8 @@ class profile_jenkins
       'delivery-pipeline-plugin' => {},
       'scm-api'                  => {},
       'conditional-buildstep'    => {},
+      'run-condition'            => {},
+      'structs'                  => {},
     },
   }
 }
