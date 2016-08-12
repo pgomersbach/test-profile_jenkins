@@ -15,6 +15,7 @@ class profile_jenkins
 
   exec { 'update_six':
     command => '/usr/bin/pip install --upgrade six>=1.90',
+    require => Class[ 'jenkins_job_builder' ],
   }
 
 #  package { [ 'json', 'yard' ]:
@@ -30,7 +31,7 @@ class profile_jenkins
   }
 
   class { 'profile_jenkins::jobs':
-    require => [ Class[ 'jenkins_job_builder' ], Exec[ 'update_six' ], ],
+    require => Class[ 'jenkins_job_builder' ],
   }
 
   class { '::jenkins':
