@@ -12,10 +12,10 @@ class profile_jenkins
   package { [ 'bundler' ,'libxslt1-dev', 'libxml2-dev', 'zlib1g-dev', 'git', 'daemon' ]:
     ensure => installed,
   }
-  package { [ 'json', 'yard' ]:
-    ensure   => installed,
-    provider => gem,
-  }
+#  package { [ 'json', 'yard' ]:
+#    ensure   => installed,
+#    provider => gem,
+#  }
 
   class { 'jenkins_job_builder':
     version          => 'latest',
