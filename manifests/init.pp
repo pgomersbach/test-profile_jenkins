@@ -23,6 +23,11 @@ class profile_jenkins
 #    provider => gem,
 #  }
 
+  package { [ 'rspec-puppet-facts' ]:
+    ensure   => installed,
+    provider => puppet_gem,
+  }
+
   class { 'jenkins_job_builder':
     version          => 'latest',
     jenkins_url      => 'http://localhost:9090',
