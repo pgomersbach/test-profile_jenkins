@@ -12,9 +12,8 @@
     builders:
       - shell:
           cd $WORKSPACE;
-          BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
-          bundle install --path $BUNDLE_PATH --without development system_tests;
-          bundle exec rake syntax
+          /opt/puppetlabs/puppet/bin/rake spec_prep;
+          /opt/puppetlabs/puppet/bin/rake syntax;
     properties:
       - delivery-pipeline:
           stage: Stage

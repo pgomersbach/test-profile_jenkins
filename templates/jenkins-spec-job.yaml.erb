@@ -14,9 +14,7 @@
     builders:
       - shell:
           cd $WORKSPACE;
-          BUNDLE_PATH="$JENKINS_HOME/shared/bundle";
-          bundle install --path $BUNDLE_PATH --without development system_tests;
-          bundle exec rake spec
+          /opt/puppetlabs/puppet/bin/rake spec;
     logrotate:
       daysToKeep: 3
       numToKeep: 2
