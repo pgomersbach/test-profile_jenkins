@@ -42,7 +42,7 @@ class profile_jenkins
   class { '::jenkins':
     repo               => false,
 #    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.1_all.deb',
-    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_1.651.3_all.deb',
+    direct_download    => 'http://pkg.jenkins-ci.org/debian-stable/binary/jenkins_2.121.2_all.deb',
     configure_firewall => false,
     cli                => true,
     config_hash        => {
