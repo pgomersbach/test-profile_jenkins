@@ -67,7 +67,6 @@ class profile_jenkins
       'scm-api'                  => {},
       'conditional-buildstep'    => {},
       'run-condition'            => {},
-      'structs'                  => {},
       'workflow-scm-step'        => {},
     },
   }
